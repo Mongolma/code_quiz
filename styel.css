@@ -1,12 +1,22 @@
 body {
   text-align: center;
-  margin-top: 150px;
 }
 h1 {
+  margin-top: 10rem;
   margin-bottom: 2rem;
 }
-p {
-  margin-bottom: 2rem;
+#p1 {
+  float: left;
+  padding-left: 2rem;
+  padding-top: 1rem;
+  font-size: large;
 }
-div {
+#p2 {
+  float: right;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  font-size: large;
+}
+.container {
+  background-size: 300px;
 }

@@ -2,8 +2,11 @@ var body = document.body;
 
 var h1El = document.createElement("h1");
 var viewScore = document.createElement("p");
+viewScore.setAttribute("id", "p1");
 var remainingTime = document.createElement("p");
+remainingTime.setAttribute("id", "p2");
 var questions = document.createElement("div");
+questions.setAttribute("class", "container");
 var pEl = document.createElement("p");
 var listEl = document.createElement("ol");
 var li1 = document.createElement("li");
@@ -30,7 +33,8 @@ pEl.textContent =
 body.append(viewScore);
 body.append(remainingTime);
 body.append(h1El);
-body.append(pEl);
+body.append(questions);
+questions.append(pEl);
 body.append(inputEl);
 
 // var quiz = document.querySelector("#start-btn");
