@@ -14,60 +14,59 @@
     <link rel="stylesheet" href="styel.css" />
   </head>
   <body>
-    <div class="container">
+    <!-- https://getbootstrap.com/docs/4.0/components/navbar/ -->
+    <nav class="navbar bg-dark">
+      <button class="text-light mb-0 btn" id="view-highscore-btn">
+        High Scores
+      </button>
+      <!-- Used to display the timer that will countdown the time remaining for the quiz -->
+      <div class="text-light" id="countDown">Time: 00</div>
+    </nav>
+    <div id="first-page" class="main-container">
       <div class="row">
-        <div class="col-md-2">
-          <p id="countdown"></p>
-        </div>
-        <div class="col-md-8">
-          <!-- <h1>Coding Quiz Challenge</h1>
-          <p id="intro">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 text-center">
+          <h1>Coding quiz challenge</h1>
+          <p>
             Try to answer the following code-related questions withen the time
             limit. Keep in mind that incorrect answer will penalize your
             scoretime by ten seconds!
           </p>
-          <button
-            id="start-btn"
-            type="button"
-            class="btn btn-primary"
-            data-toggle="button"
-            aria-pressed="false"
-          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-primary btn-lg mt-4" id="start-btn">
             Start
           </button>
         </div>
-        <div id="gamearea">
-          <div id="time"></div>
-          <h1 id="question"></h1>
-          <div id="answers"></div>
-        </div>
-        <div id="results"> -->
-          <!-- <form>
-            <input />
-            <button>SAVE SCORE</button>
-          </form> -->
+      </div>
+    </div>
+    <div class="container hide" id="questions">
+      <div class="row">
+        <div class="col">
+          <p id="answers"></p>
         </div>
       </div>
     </div>
-
     <!-- bootstrap js link -->
-    <script
+    <!-- <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
     <!-- bootstrap jquery link -->
-    <script
+    <!-- <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
     <!-- bootstrap popper link -->
-    <script
+    <!-- <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
       integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
       crossorigin="anonymous"
-    ></script>
+    ></script>-->
     <script src="script.js"></script>
   </body>
 </html>

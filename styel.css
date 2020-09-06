@@ -17,6 +17,30 @@ h1 {
   padding-top: 1rem;
   font-size: large;
 }
-.container {
-  background-size: 300px;
+.flex-container {
+  size: 400px;
+  display: flex;
+  justify-content: center;
+}
+/* adding a hide class */
+.hide {
+  display: none;
+}
+.display {
+  display: inline;
+}
+#questions {
+  text-align: center;
+  margin-top: 100px;
+}
+.main-container {
+  margin-top: 100px;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
 }
