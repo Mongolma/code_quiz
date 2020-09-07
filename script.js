@@ -23,6 +23,19 @@ var questions = [
     responce: false,
     time: 0,
   },
+  {
+    question: "var colors = ['white','black','costume'];  colors[2] ='beige';",
+    answer: [
+      "var colors = ['white','beige','costume']",
+      "var colors = ['white','black','beige']",
+      "var colors = ['white','black','costume', 'beige']",
+      "var colors = ['white','black','costume']",
+    ],
+    correctAnswer: "var colors = ['white','black','beige']",
+    usesAnswer: "var colors = ['white','black','beige']",
+    responce: false,
+    time: 0,
+  },
 ];
 
 function createRow(rows, text) {
@@ -54,11 +67,11 @@ function showQuestions() {
 
     answerEl.addEventListener("click", function (event) {
       var userInput = event.target.textContent;
-
       correctAnswer(userInput);
-      // nextQuestion();
+      nextQuestion();
     });
   });
+
   function correctAnswer(selectedButton) {
     if (questions[currentQuestion].correctAnswer === selectedButton) {
       console.log("working1");
@@ -77,7 +90,23 @@ function showQuestions() {
       }, 2000);
     }
   }
-
+  function nextQuestion() {
+    if (currentQuestion <= questions.length) {
+      currentQuestion++;
+      showQuestions();
+    } else {
+      endGame();
+    }
+  }
+  function endGame() {
+    if (currentQuestion === questions.length) {
+      containerEl.innerHTML = "";
+      var endGameEl = document.createElement("div");
+      endGameEl.setAttribute("class", "display-3");
+      endGameEl.innerHTML = "Quiz over!";
+      createRow(1, endGameEl);
+    }
+  }
   function penaltyTime() {}
 }
 
