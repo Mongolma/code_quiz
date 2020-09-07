@@ -23,9 +23,9 @@ h1 {
   justify-content: center;
 }
 /* adding a hide class */
-.hide {
+/* .hide {
   display: none;
-}
+} */
 .display {
   display: inline;
 }

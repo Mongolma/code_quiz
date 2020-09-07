@@ -52,30 +52,28 @@ function showQuestions() {
     answerEl.innerHTML = item;
     createRow(1, answerEl);
 
-    answerEl.addEventListener("click", function () {
-      questions[currentQuestion].usesAnswer =
-        questions[currentQuestion].answer[item];
-      correctAnswer();
+    answerEl.addEventListener("click", function (event) {
+      var userInput = event.target.textContent;
+
+      correctAnswer(userInput);
       // nextQuestion();
     });
   });
-  function correctAnswer() {
-    if (
-      questions[currentQuestion].correctAnswer ===
-      questions[currentQuestion].usesAnswer
-    ) {
-      questions[currentQuestion].responce = false;
-      questions[currentQuestion].time = time;
-      document.getElementById("result").innerHTML = "correct";
+  function correctAnswer(selectedButton) {
+    if (questions[currentQuestion].correctAnswer === selectedButton) {
+      console.log("working1");
+      questions[currentQuestion].responce = true;
+      document.querySelector("#result").innerHTML = "Correct!";
       setTimeout(function () {
-        document.getElementById("result").innerHTML = "";
+        document.querySelector("#result").innerHTML = "";
       }, 2000);
     } else {
+      console.log("working2");
       penaltyTime();
-      questions[currentQuestion].responce = true;
-      document.getElementById("result").innerHTML = "wrong";
+      questions[currentQuestion].responce = false;
+      document.querySelector("#result").innerHTML = "False!";
       setTimeout(function () {
-        document.getElementById("result").innerHTML = "";
+        document.querySelector("#result").innerHTML = "";
       }, 2000);
     }
   }
