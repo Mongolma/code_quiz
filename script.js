@@ -68,7 +68,7 @@ function showQuestions() {
     answerEl.addEventListener("click", function (event) {
       var userInput = event.target.textContent;
       correctAnswer(userInput);
-      nextQuestion();
+      nextQuestion(1);
     });
   });
 
@@ -91,7 +91,7 @@ function showQuestions() {
     }
   }
   function nextQuestion() {
-    if (currentQuestion <= questions.length) {
+    if (currentQuestion < questions.length - 1) {
       currentQuestion++;
       showQuestions();
     } else {
@@ -99,7 +99,8 @@ function showQuestions() {
     }
   }
   function endGame() {
-    if (currentQuestion === questions.length) {
+    if (questions[currentQuestion].question === questions.length - 1) {
+      console.log("working3");
       containerEl.innerHTML = "";
       var endGameEl = document.createElement("div");
       endGameEl.setAttribute("class", "display-3");
