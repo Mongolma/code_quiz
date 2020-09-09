@@ -1,5 +1,8 @@
 var quiz = document.getElementById("start-btn");
 var containerEl = document.querySelector(".main-container");
+var time = 0;
+var score = 0;
+var submitHiSc = document.getElementById("submit-btn");
 var currentQuestion = 0;
 var questions = [
   {
@@ -12,7 +15,7 @@ var questions = [
     ],
     correctAnswer: "Store for your information",
     usesAnswer: "Store for your information",
-    responce: false,
+    response: false,
     time: 0,
   },
   {
@@ -20,7 +23,7 @@ var questions = [
     answer: ["&&", "||", "!", "="],
     correctAnswer: "&&",
     usesAnswer: "&&",
-    responce: false,
+    response: false,
     time: 0,
   },
   {
@@ -33,7 +36,7 @@ var questions = [
     ],
     correctAnswer: "var colors = ['white','black','beige']",
     usesAnswer: "var colors = ['white','black','beige']",
-    responce: false,
+    response: false,
     time: 0,
   },
 ];
@@ -75,45 +78,100 @@ function showQuestions() {
   function correctAnswer(selectedButton) {
     if (questions[currentQuestion].correctAnswer === selectedButton) {
       console.log("working1");
-      questions[currentQuestion].responce = true;
+      questions[currentQuestion].response = true;
       document.querySelector("#result").innerHTML = "Correct!";
+      score += 10;
       setTimeout(function () {
         document.querySelector("#result").innerHTML = "";
-      }, 2000);
+      }, 1000);
     } else {
       console.log("working2");
       penaltyTime();
-      questions[currentQuestion].responce = false;
+      questions[currentQuestion].response = false;
       document.querySelector("#result").innerHTML = "False!";
       setTimeout(function () {
         document.querySelector("#result").innerHTML = "";
-      }, 2000);
+      }, 1000);
     }
   }
   function nextQuestion() {
     if (currentQuestion < questions.length - 1) {
       currentQuestion++;
       showQuestions();
-    } else {
+    } else if ((currentQuestion = questions.length - 1)) {
       endGame();
     }
   }
   function endGame() {
-    if (questions[currentQuestion].question === questions.length - 1) {
-      console.log("working3");
-      containerEl.innerHTML = "";
-      var endGameEl = document.createElement("div");
-      endGameEl.setAttribute("class", "display-3");
-      endGameEl.innerHTML = "Quiz over!";
-      createRow(1, endGameEl);
-    }
+    containerEl.innerHTML = "";
+    var endGameEl = document.createElement("div");
+    endGameEl.setAttribute("class", "P");
+    endGameEl.innerHTML =
+      "<p>Quiz over! Your score is: " +
+      score +
+      " If you want to keep your highest score write you name and click submit button!" +
+      "</p> <div class='input-group'><input type='text' id='input' ></div> <button id='submit-btn' class='btn btn-primary'>submit</button> <button id='cancel-btn' class='btn btn-primary'>cancel</button>";
+
+    createRow(1, endGameEl);
   }
-  function penaltyTime() {}
 }
+
+//keep scores into localStorage
+//need to rank the scores
+//addEventListener to highest score btn
+
+function penaltyTime() {
+  var penalty = 15;
+  var remainingT = time - penalty;
+  time = remainingT;
+}
+
+function startTimer() {
+  console.log("timer");
+  var defaultTime = 15 * questions.length;
+  var displayTimer = document.getElementById("countDown");
+  time = defaultTime;
+  mainInterval = setInterval(function () {
+    if (time > 0) {
+      time--;
+      displayTimer.textContent = time;
+    } else {
+      stopTimer();
+    }
+  }, 1000);
+}
+function stopTimer() {
+  clearInterval(mainInterval);
+}
+
+function highScore() {
+  var scores = [];
+  
+}
+
+document.addEventListener("click", function (e) {
+  // console.log(e.target.id);
+  if (e.target.id === "btn") {
+  }
+});
+document.addEventListener("click", function (e) {
+  console.log(e.target.id);
+  if (e.target.id === "view-highscore-btn") {
+    console.log("it works");
+  }
+});
+document.addEventListener("click", function () {
+  document.getElementById("submit-btn");
+});
+
+// submitHiSc.addEventListener("click", function () {
+//   var highscore = document.getElementsByTagName("input").value;
+//   localStorage.setItem("input", highscore);
+// });
 
 quiz.addEventListener("click", function () {
   document.querySelector(".main-container").innerHTML = "";
   // currentQuestion = 0;
   showQuestions();
-  //startTimer()
+  startTimer();
 });
