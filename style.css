@@ -24,8 +24,8 @@ h1 {
 }
 /* adding a hide class */
 /* .hide {
-  display: none;
-} */
+    display: none;
+  } */
 .display {
   display: inline;
 }
@@ -43,4 +43,8 @@ h1 {
 
 .column {
   flex: 50%;
+}
+.input-group-submit {
+  margin-left: 600px;
+  margin-bottom: 30px;
 }
