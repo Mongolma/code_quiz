@@ -8,4 +8,5 @@ The URL of the functional, deployed application & GitHub repository
 https://github.com/Mongolma/code-quiz https://mongolma.github.io/code-quiz/
 
 ## Screenshot
-D64A7678-7817-43FC-8890-4D18AD3AD92E_1_105_c
+![D64A7678-7817-43FC-8890-4D18AD3AD92E_1_105_c](https://user-images.githubusercontent.com/61842637/96068268-94754380-0e69-11eb-84c4-599aa0fed93c.jpeg)
+
